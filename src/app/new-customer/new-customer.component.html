@@ -1,0 +1,27 @@
+  <div class="container">
+    <div class="card col-md-6 offset-3 mt-2">
+      <div class="card-header">
+        <div class="card-body" >
+          <form [formGroup]="newCustomerFormGroup" (ngSubmit)="handleSaveCustomer()">
+           <div class="mb-3">
+              <label class="form-label">Name:</label>
+             <input type="text" formControlName="name" class="form-control">
+             <div *ngIf="newCustomerFormGroup.get('name')?.errors?.['pattern']" class="text-danger">
+               Le nom doit contenir uniquement des lettres et des espaces.
+             </div>
+             <label class="form-label">Email</label>
+             <input type="email" formControlName="adressMail" class="form-control">
+             <div *ngIf="newCustomerFormGroup.get('adressMail')?.errors?.['email']" class="text-danger">
+               Veuillez saisir une adresse e-mail valide.
+             </div>
+            </div>
+            <button [disabled]="!newCustomerFormGroup.valid" class="btn btn-info">save</button>
+            <div  *ngIf="customerAdded" class="mt-3 alert alert-success">
+              Le client a été ajouté avec succès.
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

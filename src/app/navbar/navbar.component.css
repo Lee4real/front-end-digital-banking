@@ -1,0 +1,51 @@
+.bank-navbar {
+  background-color: #0F3057; /* Couleur de fond bleu foncé */
+  padding: 10px 20px; /* Espacement intérieur */
+  display: flex;
+  justify-content: space-between; /* Alignement des éléments sur les côtés */
+  align-items: center; /* Centrage vertical */
+}
+
+.bank-navbar .navbar-brand img {
+  width: 120px; /* Taille du logo */
+}
+
+.bank-navbar button.navbar-toggler {
+  background-color: transparent; /* Bouton toggler transparent */
+  border: none;
+  padding: 0;
+}
+
+.bank-navbar ul {
+  list-style: none; /* Supprimer les puces de liste */
+  margin: 0;
+  padding: 0;
+}
+
+.bank-navbar ul li {
+  display: inline-block; /* Afficher les éléments de la liste sur la même ligne */
+  margin-right: 20px; /* Espacement entre les éléments de la liste */
+}
+
+.bank-navbar ul li:last-child {
+  margin-right: 0; /* Supprimer l'espacement pour le dernier élément */
+}
+
+.bank-navbar ul li a {
+  color: #ffffff; /* Couleur du texte */
+  text-decoration: none; /* Supprimer les soulignements des liens */
+  font-weight: bold; /* Texte en gras */
+  transition: color 0.3s ease; /* Transition en douceur de la couleur au survol */
+}
+
+.bank-navbar ul li a:hover {
+  color: #F9A826; /* Couleur du texte légèrement plus claire au survol */
+}
+.bank-navbar .dropdown-menu .dropdown-item {
+  color: black; /* Couleur du texte noir */
+}
+
+.bank-navbar .dropdown-menu .dropdown-item:hover {
+  color: #F9A826; /* Couleur du texte légèrement plus claire au survol */
+}
+

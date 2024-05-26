@@ -1,0 +1,58 @@
+<div class="container mt-2">
+  <!-- Carte des clients -->
+  <div class="card shadow" *ngIf="customers">
+    <!-- Affichage du message d'erreur -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <div class="card-header  text-white">
+      <h4 class="mb-0">Liste des clients</h4>
+      <form [formGroup]="searchFormGroup" (ngSubmit)="searchCustomers()">
+        <div class="input-group">
+          <label class="input-group-text" for="keyword">Keyword:</label>
+          <input type="text" formControlName="keyword" id="keyword" class="form-control">
+          <button type="submit" class="btn btn-info"><i class="bi bi-search"></i></button>
+        </div>
+      </form>
+    </div>
+    <div class="card-body">
+
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Suprrimer</th>
+          <th>Editer</th>
+          <th>Accounts</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.adressMail }}</td>
+          <td  *ngIf="authService.roles.includes('ADMIN')">
+            <button (click)="hadleDeleteCustomer(customer)" class="btn btn-danger"><i class="bi bi-trash"></i> </button>
+          </td>
+          <td *ngIf="authService.roles.includes('ADMIN')">
+            <button (click)="handleEditContumer(customer)" class="btn btn-info"><i class="bi bi-pencil"></i></button>
+          </td>
+          <td *ngIf="authService.roles.includes('ADMIN')">
+            <button class="btn btn-dark" (click)="handleCustomerAccount(customer.id)"><i class="bi bi-credit-card"></i></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <ul class="nav nav-pills">
+        <li *ngFor="let page of [].constructor(totalPages); let i=index">
+          <button (click)="handelGoToPage(i)"
+                  [ngClass]="currentPage==(i)?'btn btn-success m-1':'btn btn-outline-success m-1'">
+            {{(i+1)}}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

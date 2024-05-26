@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="card col-md-6 offset-3 mt-2">
+    <div class="card-header">
+      <div class="card-body" *ngIf="editCustomerFormGroup" >
+        <form [formGroup]="editCustomerFormGroup" (ngSubmit)="handleEditCustomer()">
+          <div class="mb-3">
+            <label class="form-label">Name:</label>
+            <input type="text" formControlName="name" class="form-control">
+            <div *ngIf="editCustomerFormGroup.get('name')?.errors?.['pattern']" class="text-danger">
+              Le nom doit contenir uniquement des lettres et des espaces.
+            </div>
+            <label class="form-label">Email</label>
+            <input type="email" formControlName="adressMail" class="form-control">
+            <div *ngIf="editCustomerFormGroup.get('adressMail')?.errors?.['email']" class="text-danger">
+              Veuillez saisir une adresse e-mail valide.
+            </div>
+          </div>
+          <button [disabled]="!editCustomerFormGroup.valid" class="btn btn-info">Edit</button>
+          <div  *ngIf="customerEdit" class="mt-3 alert alert-success">
+            Le client a été modifiée avec succès.
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

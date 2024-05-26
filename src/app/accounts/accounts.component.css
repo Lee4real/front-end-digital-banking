@@ -1,0 +1,30 @@
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.card-header {
+  margin-bottom: 10px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead th {
+  text-align: left;
+  padding: 8px;
+  background-color: #343a40;
+  color: white;
+}
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+td {
+  padding: 8px;
+}
+td:first-child {
+  font-weight: bold;
+}
